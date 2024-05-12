@@ -2,7 +2,7 @@
 
 get_boot_kernel() {
 	local get_version=0
-	for field in $(file /boot/vmlinuz*); do
+	for field in $(sudo sh -c 'file /boot/vmlinuz*'); do
 		if [[ $get_version -eq 1 ]]; then
 			echo "$field"
 			return
